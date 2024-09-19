@@ -6,6 +6,7 @@ const convertToRoman = (num) => {
     if ((num === "" || isNaN(num)) && !pattern.test(inputString)) {
         return <p className='sm:text-[2rem] text-[#F8AEAB]'>Please enter a valid number.</p>;
     }
+    else if (num > 3999 || num < 1) return "";
     let res = "";
     while (num > 0) {
         if (num >= 1000) {num -= 1000; res += 'M';}
