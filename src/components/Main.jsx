@@ -1,6 +1,11 @@
 import { useState } from 'react';
 
 const convertToRoman = (num) => {
+    const pattern = /^-?\d{1,4}$/;
+    var inputString = toString(num);
+    if ((num === "" || isNaN(num)) && !pattern.test(inputString)) {
+        return <p className='sm:text-[2rem] text-[#F8AEAB]'>Please enter a valid number.</p>;
+    }
     let res = "";
     while (num > 0) {
         if (num >= 1000) {num -= 1000; res += 'M';}
